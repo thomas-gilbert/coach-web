@@ -12,6 +12,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import ExerciseGroup from '../../components/Form/ExerciseGroup';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class CreatePage extends React.PureComponent {
@@ -23,7 +24,7 @@ export default class CreatePage extends React.PureComponent {
         </h1>
         <form>
           <div className="form-group">
-            <input value />
+            <ExerciseGroup />
           </div>
         </form>
       </div>
