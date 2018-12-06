@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class CreatePage extends React.PureComponent {
+class ExerciseGroup extends React.PureComponent {
   constructor() {
     super();
     this.state = {
@@ -15,15 +16,25 @@ export default class CreatePage extends React.PureComponent {
   }
 
   handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => {
+        this.props.updateDay(
+          this.props.dayIndex,
+          this.props.exerciseIndex,
+          this.state,
+        );
+      },
+    );
   }
 
   render() {
     return (
-      <div className="form-group">
-        <div>
+      <div className="exercise-group">
+        <h3>{`Exercise ${this.props.exerciseIndex}`}</h3>
+        <div className="exercise-item">
           <label htmlFor="exercise"> Exercise</label>
           <input
             name="exercise"
@@ -31,7 +42,7 @@ export default class CreatePage extends React.PureComponent {
             value={this.state.exercise}
           />
         </div>
-        <div>
+        <div className="exercise-item">
           <label htmlFor="sets"> Sets</label>
           <input
             name="sets"
@@ -39,7 +50,7 @@ export default class CreatePage extends React.PureComponent {
             value={this.state.sets}
           />
         </div>
-        <div>
+        <div className="exercise-item">
           <label htmlFor="reps"> Reps</label>
           <input
             name="reps"
@@ -47,7 +58,7 @@ export default class CreatePage extends React.PureComponent {
             value={this.state.reps}
           />
         </div>
-        <div>
+        <div className="exercise-item">
           <label htmlFor="weight"> Weight</label>
           <input
             name="weight"
@@ -59,3 +70,11 @@ export default class CreatePage extends React.PureComponent {
     );
   }
 }
+
+ExerciseGroup.propTypes = {
+  exerciseIndex: PropTypes.number.isRequired,
+  dayIndex: PropTypes.number.isRequired,
+  updateDay: PropTypes.func.isRequired,
+};
+
+export default ExerciseGroup;

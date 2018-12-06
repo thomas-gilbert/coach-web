@@ -11,10 +11,11 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { connect } from 'react-redux';
 import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
+class HomePage extends React.PureComponent {
   render() {
     return (
       <h1>
@@ -23,3 +24,18 @@ export default class HomePage extends React.PureComponent {
     );
   }
 }
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    save: () => dispatch({}),
+  };
+}
+
+export function mapStateToProps() {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomePage);

@@ -26,6 +26,31 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+
+  .form-group {
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  .exercise-group {
+    border: 1px solid #000;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .exercise-item {
+    width: 25%;
+    float: left;
+    margin-bottom: 10px;
+  }
+
+  .exercise-item label {
+    display: block;
+  }
+
+  .exercise-item input {
+    border: 1px solid #ccc;
+  }
 `;
 
 export default GlobalStyle;
