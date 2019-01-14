@@ -45,6 +45,7 @@ class ExerciseGroup extends React.PureComponent {
         <div className="exercise-item">
           <label htmlFor="sets"> Sets</label>
           <input
+            type="number"
             name="sets"
             onChange={this.handleChange}
             value={this.state.sets}
@@ -53,13 +54,17 @@ class ExerciseGroup extends React.PureComponent {
         <div className="exercise-item">
           <label htmlFor="reps"> Reps</label>
           <input
+            type="number"
             name="reps"
             onChange={this.handleChange}
             value={this.state.reps}
           />
         </div>
         <div className="exercise-item">
-          <label htmlFor="weight"> Weight</label>
+          <label htmlFor="weight" type="number">
+            {' '}
+            Weight
+          </label>
           <input
             name="weight"
             onChange={this.handleChange}

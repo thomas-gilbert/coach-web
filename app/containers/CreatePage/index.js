@@ -14,6 +14,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
+import { push } from 'connected-react-router/immutable';
 import messages from './messages';
 import { save } from './actions';
 import reducer from './reducer';
@@ -78,7 +79,14 @@ class CreatePage extends React.PureComponent {
   }
 
   save() {
-    this.props.save(this.state.program);
+    const data = {
+      name: 'Test',
+      uniqueCode: Math.floor(Math.random() * 100 + 1),
+      data: this.state.program,
+    };
+
+    this.props.save(data);
+    this.props.goHome();
   }
 
   render() {
@@ -117,6 +125,7 @@ class CreatePage extends React.PureComponent {
 export function mapDispatchToProps(dispatch) {
   return {
     save: data => dispatch(save(data)),
+    goHome: () => dispatch(push('/')),
   };
 }
 

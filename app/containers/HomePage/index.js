@@ -25,17 +25,9 @@ class HomePage extends React.PureComponent {
   }
 }
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    save: () => dispatch({}),
-  };
-}
-
-export function mapStateToProps() {
+export function mapStateToProps(state) {
+  console.warn(state.create);
   return {};
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomePage);
+export default connect(mapStateToProps)(HomePage);
